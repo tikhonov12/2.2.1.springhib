@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars_table")
 public class Car {
+
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long car_id;
@@ -12,6 +14,11 @@ public class Car {
     private String model;
     @Column
     private int series;
+
+    public User getUser() {
+        return user;
+    }
+
     @OneToOne(mappedBy = "car")
     private User user;
     public Car(String model, int series) {
@@ -22,7 +29,9 @@ public class Car {
     public Car() {
     }
 
-
+    public long getCar_id() {
+        return car_id;
+    }
     public String getModel() {
         return model;
     }
